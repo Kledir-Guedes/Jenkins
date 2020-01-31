@@ -6,7 +6,7 @@ pipeline {
                defaultValue: "")
             string(
                 name: 'ENV' 
-                defaultValue:"default")
+                defaultValue:'default')
           }
     stages {
         stage('Build') {
