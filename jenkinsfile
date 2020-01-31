@@ -3,10 +3,11 @@ pipeline {
     parameters{
             string(
                name: 'tag',
-                defaultValue:"",
+               defaultValue:"")
+            string(
                 name: 'ENV' 
-                defaultValue:"lab"
-          )}
+                defaultValue:"lab")
+          }
     stages {
         stage('Build') {
             steps {
