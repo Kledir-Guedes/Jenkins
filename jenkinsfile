@@ -1,20 +1,27 @@
 pipeline {
     agent any
-
+    
+    parameters {
+         stringParam(tag: '', ENV: 'lab')
+    }
     stages {
         stage('Build') {
             steps {
-                sh 'git clone git@github.com:protonss4fun/eai-jenkins-jobs.git'
+                sh 'git@gitlab.ipirangacloud.com:produtos/vcmais/vtex-api-gateway.git'
+                sh 'npm install'
             }
         }
-        stage('Test') {
+        stage('tag release') {
             steps {
-                echo 'Testing..'
+                sh 'git@gitlab.ipirangacloud.com:produtos/vcmais/vtex-api-gateway.git'
+                sh /var/lib/jenkins/ci-scripts/eai/nodejs/release-tag-version.sh api-gateway-vtex-version.properties
+                
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sh 'python3 /var/lib/jenkins/ci-scripts/eai/docker/build-push-image.py ${params.ENV} ${params.TAG}'
+                sh 'python /var/lib/jenkins/ci-scripts/eai/ecs/deploy.py ${ENV} ${TAG}'
             }
         }
     }
