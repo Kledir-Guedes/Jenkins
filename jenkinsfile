@@ -5,7 +5,8 @@ pipeline {
                name: 'ENV',
                defaultValue:'lab')
             string(
-                name: 'tag')
+                name: 'tag',
+                defaultValue:'')
           }
     stages {
         stage('Build') {
