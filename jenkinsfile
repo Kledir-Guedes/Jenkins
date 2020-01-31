@@ -2,8 +2,7 @@ pipeline {
     agent any
     parameters{
             string(
-               name: 'tag',
-               defaultValue: "")
+               name: 'tag')
             string(
                 name: 'ENV' 
                 defaultValue:'default')
