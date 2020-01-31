@@ -11,9 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo '${params.ENV}'
-                sh 'git@gitlab.ipirangacloud.com:produtos/vcmais/vtex-api-gateway.git'
-                sh 'npm install'
-                
+                               
             }
         }
         stage('tag release') {
