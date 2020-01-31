@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     parameters {
-         stringParam(tag: '', ENV: 'lab')
+         stringParam("tag": "", "ENV": "lab")
     }
     stages {
         stage('Build') {
