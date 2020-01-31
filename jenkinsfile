@@ -2,16 +2,17 @@ pipeline {
     agent any
     parameters{
             string(
-               name: 'tag',
-               defaultValue:'default')
+               name: 'ENV',
+               defaultValue:'lab')
             string(
-                name: 'ENV')
+                name: 'tag')
           }
     stages {
         stage('Build') {
             steps {
                 sh 'git@gitlab.ipirangacloud.com:produtos/vcmais/vtex-api-gateway.git'
                 sh 'npm install'
+                echo ${params.ENV}
             }
         }
         stage('tag release') {
