@@ -14,7 +14,7 @@ pipeline {
         stage('tag release') {
             steps {
                 sh 'git@gitlab.ipirangacloud.com:produtos/vcmais/vtex-api-gateway.git'
-                sh /var/lib/jenkins/ci-scripts/eai/nodejs/release-tag-version.sh api-gateway-vtex-version.properties
+                sh '/var/lib/jenkins/ci-scripts/eai/nodejs/release-tag-version.sh api-gateway-vtex-version.properties'
                 
             }
         }
