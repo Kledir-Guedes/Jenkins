@@ -4,7 +4,7 @@ pipeline {
             string(
                 tag:'',
                 ENV:'lab'
-           }
+          )}
     stages {
         stage('Build') {
             steps {
