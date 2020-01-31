@@ -2,8 +2,10 @@ pipeline {
     agent any
     parameters{
             string(
-                tag:'',
-                ENV:'lab'
+               name: 'tag',
+                defaultValue:"",
+                name: 'ENV' 
+                defaultValue:"lab"
           )}
     stages {
         stage('Build') {
