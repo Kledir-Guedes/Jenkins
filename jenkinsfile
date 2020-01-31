@@ -1,7 +1,9 @@
 pipeline {
     agent any
     parameters{
-            string(name('tag'),value(''), name('ENV'), value('lab'))
+            string(
+                tag:'',
+                ENV:'lab'
            }
     stages {
         stage('Build') {
