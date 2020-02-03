@@ -1,6 +1,5 @@
 pipeline {
-    agent any
-    def username ='${tag}'
+    agent any    
     parameters{
             string(
                name: 'ENV',
