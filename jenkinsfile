@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    def username ='${tag}'
     parameters{
             string(
                name: 'ENV',
@@ -19,7 +20,8 @@ pipeline {
         }
         stage('tag release') {
             steps {
-               echo "$TAG"
+               echo "${TAG}"
+               echo "${username}"
                 
             }
         }
