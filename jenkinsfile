@@ -1,17 +1,16 @@
+def tag= 0.0 as float
 pipeline {
     agent any    
     parameters{
             string(
                name: 'ENV',
                defaultValue:'lab')
-            string(
-                name: 'tag',
-                defaultValue:"$TAG")
           }
+          
     stages {
         stage('Build') {
             steps {
-            sh 'export params.tag=1.1'
+            sh 'tag=1.1'
             
                 
                                
@@ -19,7 +18,7 @@ pipeline {
         }
         stage('tag release') {
             steps {
-               echo "${params.tag}"
+               echo "${tag}"
                
                 
             }
