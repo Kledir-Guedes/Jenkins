@@ -11,22 +11,21 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'git@gitlab.ipirangacloud.com:produtos/vcmais/vtex-api-gateway.git'
-                sh 'npm install'
+            sh 'echo params.tag=1.1'
+            
+                
                                
             }
         }
         stage('tag release') {
             steps {
-                sh 'git@gitlab.ipirangacloud.com:produtos/vcmais/vtex-api-gateway.git'
-                sh '/var/lib/jenkins/ci-scripts/eai/nodejs/release-tag-version.sh api-gateway-vtex-version.properties'
+               echo "${params.tag}"
                 
             }
         }
         stage('Deploy') {
             steps {
-                sh 'python3 /var/lib/jenkins/ci-scripts/eai/docker/build-push-image.py ${params.ENV} ${params.TAG}'
-                sh 'python /var/lib/jenkins/ci-scripts/eai/ecs/deploy.py ${ENV} ${TAG}'
+                
             }
         }
     }
