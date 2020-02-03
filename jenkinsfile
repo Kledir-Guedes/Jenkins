@@ -6,12 +6,12 @@ pipeline {
                defaultValue:'lab')
             string(
                 name: 'tag',
-                defaultValue:'')
+                defaultValue:"$TAG")
           }
     stages {
         stage('Build') {
             steps {
-            sh 'echo ${params.tag.defaultValue}=1.1'
+            sh 'echo TAG=1.1'
             
                 
                                
