@@ -1,4 +1,4 @@
-def tag= 0.0 as float
+
 pipeline {
     agent any    
     parameters{
