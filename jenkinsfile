@@ -10,8 +10,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-            sh 'export tag=1.1'
-            
+            sh 'echo export tag=1.1'        
                 
                                
             }
