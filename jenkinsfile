@@ -19,7 +19,7 @@ pipeline {
         }
         stage('tag release') {
             steps {
-               echo "${params.tag}"
+               echo "$TAG"
                 
             }
         }
