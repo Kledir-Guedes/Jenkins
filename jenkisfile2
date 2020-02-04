@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DISABLE_AUTH = 'true'
-        DB_ENGINE    = "/var/lib/jenkins/users/jenkins/vtex-payment-provider.properties"
+        DB_ENGINE    =cat /var/lib/jenkins/users/jenkins/vtex-payment-provider.properties
     }
     stages {
         stage('Example Username/Password1') {
