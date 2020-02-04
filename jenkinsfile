@@ -20,7 +20,7 @@ pipeline {
             }
         }
          stage('Deploy') {
-            def tag=1.1 
+            def tag = 1.1 
             steps {
                 echo "${tag}"                
                 echo 'fim'                
