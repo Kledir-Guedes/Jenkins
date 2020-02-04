@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Example Username/Password1') {
            environment {
-               DB_ENGINE="${sh(script:'ls -lah', returnStdout: true)}"
+               DB_ENGINE="${sh(script:'pwd', returnStdout: true)}"
                }
            steps {
                
