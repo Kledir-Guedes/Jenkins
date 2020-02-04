@@ -18,14 +18,16 @@ pipeline {
             }
         }
         stage('tag release') {
+            environment {
+                SSH_CREDS = 'credentials'
             steps {
+                sh 'echo "SSH user is $SSH_CREDS_USR"'
                 echo 'teste'    
             }
         }
          stage('Deploy') {
-            def tag = 1.1 
-            steps {
-                echo "${tag}"                
+           steps {
+                echo "${parms.tag}"                
                 echo 'fim'                
             }
         }       
