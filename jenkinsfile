@@ -2,9 +2,9 @@
 pipeline {
     agent any    
     parameters{
-            string(
-               name: 'ENV',
-               defaultValue:'lab')
+            choice( name: 'Environment',
+               choices:'lab\nhomol\nprod'
+               description: 'Which environment do you want to run the job in?' )
           }
           
     stages {
