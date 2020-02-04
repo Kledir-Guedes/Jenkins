@@ -10,7 +10,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'inicio'                             
+                echo 'inicio'  
+                for (i in [ 'a', 'b', 'c' ]) {
+                    echo i
+                    sh "echo \"from shell i=${i}\""
+}
             }
         }
         stage('tag release') {
