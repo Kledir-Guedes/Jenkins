@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('Example Username/Password1') {
            environment {
-               DB_ENGINE='teste'
+               DB_ENGINE="${sh(script:'ls -lah', returnStdout: true)}"
                }
            steps {
                
                echo "Database engine is ${DB_ENGINE}"
-               echo "DISABLE_AUTH is ${DISABLE_AUTH}"
+               
             }
         }
      }
