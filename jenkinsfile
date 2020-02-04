@@ -15,9 +15,9 @@ pipeline {
         }
         stage('tag release') {
             environment {
-                SSH_CREDS = 'credentials'
+                SSH_CREDS = 'cred'
             steps {
-                sh 'echo "SSH user is $SSH_CREDS_USR"'
+                sh 'echo "$SSH_CREDS_USR"'
                 echo 'teste'    
             }
         }
