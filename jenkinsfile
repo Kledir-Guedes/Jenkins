@@ -10,12 +10,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-            echo 'inicio'                             
+                echo 'inicio'                             
             }
         }
         stage('tag release') {
             steps {
-                echo "tag=1.1"              
+                sh 'echo "tag=1.1"'              
             }
         }
          stage('Deploy') {
