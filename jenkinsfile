@@ -5,6 +5,9 @@ pipeline {
             choice( name: 'Environment',
                choices:'lab\nhomol\nprod',
                description: 'Which environment do you want to run the job in?' )
+               
+            string(name: 'tag',
+                defaltvalue: "1 + 1"
           }
           
     stages {
