@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DISABLE_AUTH = 'true'
-        DB_ENGINE    = 'sqlite'
+        DB_ENGINE    = 1+1
     }
     stages {
         stage('Example Username/Password1') {
