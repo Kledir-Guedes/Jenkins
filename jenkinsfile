@@ -14,16 +14,14 @@ pipeline {
             }
         }
         stage('tag release') {
-            environment {
-                SSH_CREDS = 'cred'
-            steps {
-                sh 'echo "$SSH_CREDS_USR"'
+          steps {
+                sh 'tag=1.1'                
                 echo 'teste'    
             }
         }
          stage('Deploy') {
            steps {             
-                echo 'fim'                
+                echo '$tag'                
             }
         }       
     }
