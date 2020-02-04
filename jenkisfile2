@@ -2,11 +2,12 @@ pipeline {
     agent any
     environment {
         DISABLE_AUTH = 'true'
-        DB_ENGINE    =cat /var/lib/jenkins/users/jenkins/vtex-payment-provider.properties
+        DB_ENGINE    ='.'
     }
     stages {
         stage('Example Username/Password1') {
-           steps {               
+           steps {
+               sh 'set DB_ENGINE='teste'
                echo "Database engine is ${DB_ENGINE}"
                echo "DISABLE_AUTH is ${DISABLE_AUTH}"
             }
