@@ -15,9 +15,9 @@ pipeline {
         }
         stage('tag release') {
           steps {
-                echo "tag=1.1"                
+                sh 'echo "tag=1.1"'               
                 echo 'teste'
-                echo "$tag"                 
+                sh 'echo "$tag"'                 
             }
         }
          stage('Deploy') {
