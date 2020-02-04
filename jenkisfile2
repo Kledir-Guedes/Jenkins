@@ -6,8 +6,11 @@ pipeline {
     }
     stages {
         stage('Example Username/Password1') {
+           environment {
+               DB_ENGINE='teste'
+               }
            steps {
-               sh "set DB_ENGINE='teste'"
+               
                echo "Database engine is ${DB_ENGINE}"
                echo "DISABLE_AUTH is ${DISABLE_AUTH}"
             }
