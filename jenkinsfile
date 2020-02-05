@@ -6,35 +6,16 @@ pipeline {
                choices:'lab\nhomol\nprod',
                description: 'Which environment do you want to run the job in?' )
            }
-   if (env.Environment == "lab") {       
-    stages {
         
+    stages {
+       when {
+        ${parmrs.Environment} 'lab'
+        }   
         stage('Build') {
             steps {
                 echo 'inicio lab'                  
             }
         }
-        stage('tag release') {
-          steps {                              
-                echo 'teste lab'                                 
-            }
-        }
-         stage('Deploy') {
-           steps {             
-                echo "fim lab"               
-            }
-        }
-                       
-           
-        }
-      } else {
-         stages {
-           stage('Build') {
-            steps {
-                echo 'inicio prod' 
-            }
-        }
-     }
-    }
+      }
 }
 
