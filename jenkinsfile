@@ -8,23 +8,31 @@ pipeline {
            }
           
     stages {
+        if (env.Environment == "lab") {
         stage('Build') {
             steps {
-                echo 'inicio'                  
+                echo 'inicio lab'                  
             }
         }
         stage('tag release') {
           steps {
-                sh 'echo "tag=1.1"'               
-                echo 'teste'
-                sh 'echo "$tag"'                 
+                              
+                echo 'teste lab'
+                                 
             }
         }
          stage('Deploy') {
            steps {             
-                echo "fim"               
+                echo "fim lab"               
             }
-        }       
+        }
+      } else {
+           stage('Build') {
+            steps {
+                echo 'inicio prod'                  
+            }
+        }
+      }
     }
 }
 
