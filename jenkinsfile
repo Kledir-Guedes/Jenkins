@@ -2,19 +2,37 @@ pipeline {
     agent any
     parameters {
         choice(
-            choices: ['greeting' , 'silence'],
+            choices: ['lab' , 'homol', 'prod'],
             description: '',
-            name: 'REQUESTED_ACTION')
+            name: 'ENV')
     }
 
     stages {
-        stage ('Speak') {
+        stage ('lab') {
             when {
                 // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'greeting' }
+                expression { params.ENV == 'lab' }
             }
             steps {
-                echo "Hello, bitwiseman!"
+                echo "teste lab!"
+            }
+        }
+        stage ('homol') {
+            when {
+                // Only say hello if a "greeting" is requested
+                expression { params.ENV == 'homol' }
+            }
+            steps {
+                echo "teste homol!"
+            }
+        }
+        stage ('prod') {
+            when {
+                // Only say hello if a "greeting" is requested
+                expression { params.ENV == 'prod' }
+            }
+            steps {
+                echo "teste prod!"
             }
         }
     }
