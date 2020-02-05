@@ -8,9 +8,10 @@ pipeline {
            }
         
     stages {
-       when {
-        ${parmrs.Environment} 'lab'
-        }   
+        when {
+                // Only say hello if a "greeting" is requested
+                expression { params.Environment == 'lab' }
+            } 
         stage('Build') {
             steps {
                 echo 'inicio lab'                  
