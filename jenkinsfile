@@ -1,22 +1,21 @@
-
 pipeline {
-    agent any    
-    parameters{
-            choice( name: 'Environment',
-               choices:'lab\nhomol\nprod',
-               description: 'Which environment do you want to run the job in?' )
-           }
-        
+    agent any
+    parameters {
+        choice(
+            choices: ['greeting' , 'silence'],
+            description: '',
+            name: 'REQUESTED_ACTION')
+    }
+
     stages {
-        when {
+        stage ('Speak') {
+            when {
                 // Only say hello if a "greeting" is requested
-                expression { params.Environment == 'lab' }
-            } 
-        stage('Build') {
+                expression { params.REQUESTED_ACTION == 'greeting' }
+            }
             steps {
-                echo 'inicio lab'                  
+                echo "Hello, bitwiseman!"
             }
         }
-      }
+    }
 }
-
